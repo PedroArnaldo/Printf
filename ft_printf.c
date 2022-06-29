@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/06/26 18:28:12 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:58:27 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 int ft_printvar(const char c, va_list *var)
 {
 	if (c == 'c')
-		ft_printchar();
-	
+		ft_putchar();
+	else if (c == 's')
+		ft_putstr();
+	else if (c == '%')
+		ft_putchar('%');
 }
 
 int ft_printf(const char *str, ...)
@@ -40,7 +43,6 @@ int ft_printf(const char *str, ...)
 		{
 			print_len++;
 		}
-
 		i++;
 	}
 	return (print_len);
