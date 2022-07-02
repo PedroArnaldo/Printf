@@ -6,14 +6,14 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:42:43 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/01 19:44:23 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:36:49 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libftprintf.h"
 
 int ft_putchar(char c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
 	return (1);
 }
