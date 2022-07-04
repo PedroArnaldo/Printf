@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/07 18:56:03 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/20 10:33:17 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int size;
+	size_t	index;
+	char	*aux_dst;
+	char	*aux_src;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	if (src == NULL && dst == NULL)
+		return (dst);
+	aux_dst = (char *) dst;
+	aux_src = (char *) src;
+	index = 0;
+	while (index < n)
 	{
-		n = n / 10;
-		size++;
+		aux_dst[index] = aux_src[index];
+		index++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	return (aux_dst);
 }

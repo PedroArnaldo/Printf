@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/18 11:00:44 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/20 11:09:30 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int size;
+	unsigned int	i;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	i = 0;
+	while (s[i])
 	{
-		n = n / 10;
-		size++;
+		f(i, s + i);
+		i++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
 }

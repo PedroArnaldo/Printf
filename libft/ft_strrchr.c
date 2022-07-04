@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/05/28 16:05:33 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/21 19:48:24 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+char	*ft_strrchr(const char *str, int c)
 {
-	int size;
+	int	i;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	i = ft_strlen(str);
+	while (i >= 0)
 	{
-		n = n / 10;
-		size++;
+		if (str[i] == (char) c)
+			return ((char *) &str[i]);
+		i--;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	return (0);
 }

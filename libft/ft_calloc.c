@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfutils.c                                   :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 14:55:43 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/12 19:21:30 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/15 18:17:09 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int ft_putchar(char c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	write(1, &c, 1);
-	return (1);
-}
+	size_t	total_m;
+	void	*ptr;
 
-int ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while(str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
+	total_m = nmemb * size;
+	ptr = malloc(total_m);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, total_m);
+	return (ptr);
 }

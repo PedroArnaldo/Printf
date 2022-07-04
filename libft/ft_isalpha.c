@@ -1,42 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/05/21 10:33:13 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/15 17:11:36 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-static int size_num(int n)
+int	ft_isalpha(int c)
 {
-	int size;
-
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
-	{
-		n = n / 10;
-		size++;
-	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

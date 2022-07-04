@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/08 20:14:53 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/15 17:51:05 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int size;
+	unsigned char	*aux_src;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	while (n-- > 0)
 	{
-		n = n / 10;
-		size++;
+		aux_src = (unsigned char *) s;
+		if (*aux_src == (unsigned char)c)
+			return (aux_src);
+		s++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	return (NULL);
 }

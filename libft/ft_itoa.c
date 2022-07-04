@@ -6,15 +6,15 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 08:32:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 15:47:03 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:01:36 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int	size_num(int n)
+static size_t	size_num(int n)
 {
-	int	size;
+	size_t	size;
 
 	size = 1;
 	if (n < 0)
@@ -30,7 +30,7 @@ static int	size_num(int n)
 
 char	*cal_itoa(int n)
 {
-	int			size;
+	size_t			size;
 	char			*str;
 	unsigned int	sin;
 
@@ -58,7 +58,7 @@ char	*cal_itoa(int n)
 
 char	*ft_itoa(int n)
 {
-	//if (n == -2147483648)
-		//return (ft_strdup("-2147483648"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	return (cal_itoa(n));
 }

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/09 20:05:11 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/22 19:07:43 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int size;
+	size_t	i;
+	size_t	j;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	if (*needle == 0)
+		return ((char *)haystack);
+	if (*haystack == 0)
+		return (NULL);
+	i = 0;
+	while (haystack[i] && (i < len))
 	{
-		n = n / 10;
-		size++;
+		j = 0;
+		while (haystack[j + i] == needle[j] && (i + j < len) && needle[j])
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)haystack + i);
+		i++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	return (NULL);
 }

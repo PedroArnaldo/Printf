@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/11 14:43:41 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/23 17:05:37 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int size;
+	size_t	index;
+	size_t	len;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	index = 0;
+	len = 0;
+	while (dest[len] && len < size)
+			len++;
+	index = len;
+	while (src[len - index] && (len + 1) < size)
 	{
-		n = n / 10;
-		size++;
+		dest[len] = src[len - index];
+		len++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	if (index < size)
+		dest[len] = '\0';
+	return (index + ft_strlen(src));
 }
