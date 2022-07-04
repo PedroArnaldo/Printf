@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printfutils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 19:29:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 19:03:20 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/07/04 19:02:29 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
+int ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
-int	ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_printfdec(int n);
+int ft_putstr(char *str)
+{
+	int i;
 
-#endif
+	i = 0;
+	while(str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
+}
