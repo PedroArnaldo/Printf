@@ -6,20 +6,30 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/02 18:38:08 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:53:16 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printvar(const char c, va_list var)
+static int ft_printvar(const char c, va_list var)
 {
 	if (c == 'c')
 	{
 		return (ft_putchar(va_arg(var, int)));
 	}
-	//else if (c == 's')
-	//else if (c == '%')
+	else if (c == 's')
+	{
+		return (ft_putstr(va_arg(var, char *)));
+	}
+	else if (c == 'i')
+	{
+		return (ft_printfdec(va_arg(var, int)));
+	}
+	else if (c == '%')
+	{
+		return (ft_putchar(c));
+	}
 	return (0);
 }
 
@@ -54,5 +64,5 @@ int ft_printf(const char *str, ...)
 
 int main()
 {
-	ft_printf("teste string %c", 's');
+	ft_printf("teste string %c  %% %s %i\n", 's', "string", 2);
 }

@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_printfdec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 19:42:43 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/02 18:36:49 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/07/04 15:50:42 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_putchar(char c)
+static int size_num(int n)
 {
-	write(1, &c, 1);
-	return (1);
+	int size;
+
+	size = 1;
+	if (n < 0)
+		size++;
+	n = n / 10;
+	while (n)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
+}
+
+
+int ft_printfdec(int n)
+{
+	int size;
+	char * str_num;
+	size = size_num(n);
+	str_num = ft_itoa(n);
+	ft_putstr(str_num);
+	return (size);
 }
