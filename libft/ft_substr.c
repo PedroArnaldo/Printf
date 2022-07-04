@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/13 19:11:44 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/21 19:49:18 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int size;
+	char	*dst;
+	size_t	i;
+	size_t	j;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	dst = (char *) malloc(sizeof(char) * (len + 1));
+	if (dst == NULL)
+		return (NULL);
+	if (!s)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		n = n / 10;
-		size++;
+		if (i >= start && j < len)
+		{
+			dst[j] = s[i];
+			j++;
+		}
+		i++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	dst[j] = '\0';
+	return (dst);
 }

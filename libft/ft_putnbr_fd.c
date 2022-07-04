@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/13 19:04:18 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/22 18:31:05 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int size;
+	char	c;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
 	{
-		n = n / 10;
-		size++;
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = n * -1;
+		}
+		if (n < 10)
+		{
+			c = n + '0';
+			write(fd, &c, 1);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			c = (n % 10) + '0';
+			write(fd, &c, 1);
+		}
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
 }

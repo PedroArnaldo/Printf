@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfdec.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 15:20:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 18:28:02 by parnaldo         ###   ########.fr       */
+/*   Created: 2022/06/06 20:04:34 by parnaldo          #+#    #+#             */
+/*   Updated: 2022/06/20 10:39:28 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-static int size_num(int n)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int size;
+	size_t	index;
 
-	size = 1;
-	if (n < 0)
-		size++;
-	n = n / 10;
-	while (n)
+	index = 0;
+	while ((str1[index] || str2[index]) && index < n)
 	{
-		n = n / 10;
-		size++;
+		if (str1[index] != str2[index])
+			return ((unsigned char)str1[index] - (unsigned char)str2[index]);
+		index++;
 	}
-	return (size);
-}
-
-
-int ft_printfdec(int n)
-{
-	int size;
-	char * str_num;
-	size = size_num(n);
-	str_num = ""; 
-	//ft_itoa(n);
-	ft_putstr(str_num);
-	free(str_num);
-	return (size);
+	if ((index < n) && str1[index] != str2[index])
+		return ((unsigned char) str1[index] - (unsigned char) str2[index]);
+	return (0);
 }
