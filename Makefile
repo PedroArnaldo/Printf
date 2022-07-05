@@ -6,7 +6,7 @@
 #    By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 15:58:19 by parnaldo          #+#    #+#              #
-#    Updated: 2022/07/05 15:51:56 by parnaldo         ###   ########.fr        #
+#    Updated: 2022/07/05 18:40:31 by parnaldo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC = ft_printf.c \
 	  ft_itoa.c \
 	  ft_printfdec.c \
 	  ft_printfutils.c \
-	  ft_printfunsigned.c
+	  ft_printfunsigned.c \
+	  ft_printfhex.c
 
 OBJS = $(SRC:.c=.o)
 

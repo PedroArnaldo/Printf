@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:28:56 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 16:14:10 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:37:37 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	size_num(int n)
 {

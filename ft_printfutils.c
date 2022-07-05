@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 15:05:30 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:48:32 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int ft_putchar(char c)
 {
@@ -21,6 +21,12 @@ int ft_putchar(char c)
 int ft_putstr(char *str)
 {
 	int i;
+	
+	if(str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 
 	i = 0;
 	while(str[i])
