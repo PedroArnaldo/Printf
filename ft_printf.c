@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 14:31:57 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:17:09 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ static int ft_printvar(const char c, va_list var)
 	{
 		return (ft_putstr(va_arg(var, char *)));
 	}
-	else if (c == 'i')
+	else if (c == 'i' || c == 'd')
 	{
 		return (ft_printfdec(va_arg(var, int)));
+	}
+	else if (c == 'u')
+	{
+		return (ft_printfunsigned(va_arg(var, int)));
 	}
 	else if (c == '%')
 	{
@@ -61,8 +65,8 @@ int ft_printf(const char *str, ...)
 	return (print_len);
 }
 
-/*
+
 int main()
 {
-	ft_printf("teste string %c  %% %s %i\n", 's', "string", 2);
-}*/
+	ft_printf("teste string %c  %% %s %i %u %u %% %% %%\n", 's', "string", 2, 6, -35);
+}

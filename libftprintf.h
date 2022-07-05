@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:29:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 15:07:31 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:01:45 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int ft_printfdec(int n);
 int ft_printf(const char *str, ...);
 int ft_strlen(char *s1);
 char *ft_strdup(const char *s1);
+int ft_printfunsigned(unsigned int n);
 
 #endif

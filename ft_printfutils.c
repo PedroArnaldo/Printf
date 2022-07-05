@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 15:10:33 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:05:30 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int ft_putstr(char *str)
 {
 	int i;
 
-	if (str == NULL)
-		write(1, "NULL", 4);
 	i = 0;
 	while(str[i])
 	{
