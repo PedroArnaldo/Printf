@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 15:53:16 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:33:52 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "include/libftprintf.h"
 
 static int ft_printvar(const char c, va_list var)
 {
@@ -61,8 +61,8 @@ int ft_printf(const char *str, ...)
 	return (print_len);
 }
 
-
+/*
 int main()
 {
 	ft_printf("teste string %c  %% %s %i\n", 's', "string", 2);
-}
+}*/

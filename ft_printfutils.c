@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/04 14:55:43 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:34:59 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "include/libftprintf.h"
 
 int ft_putchar(char c)
 {
