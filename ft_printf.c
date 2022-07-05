@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 10:33:52 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:31:57 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libftprintf.h"
+#include "libftprintf.h"
 
 static int ft_printvar(const char c, va_list var)
 {
@@ -47,7 +47,7 @@ int ft_printf(const char *str, ...)
 	{
 		if(str[i] == '%')
 		{
-			print_len  += ft_printvar(str[i + 1], args);
+			print_len += ft_printvar(str[i + 1], args);
 			i++;
 		}
 		else

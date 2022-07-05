@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 08:32:10 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 11:28:48 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:08:03 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libftprintf.h"
+#include "libftprintf.h"
 
 static int	size_num(int n)
 {
@@ -58,7 +58,7 @@ static char	*cal_itoa(int n)
 
 char	*ft_itoa(int n)
 {
-	//if (n == -2147483648)
-		//return (ft_strdup("-2147483648"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	return (cal_itoa(n));
 }

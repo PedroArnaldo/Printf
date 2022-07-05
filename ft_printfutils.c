@@ -6,11 +6,11 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 10:34:59 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:10:33 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libftprintf.h"
+#include "libftprintf.h"
 
 int ft_putchar(char c)
 {
@@ -22,6 +22,8 @@ int ft_putstr(char *str)
 {
 	int i;
 
+	if (str == NULL)
+		write(1, "NULL", 4);
 	i = 0;
 	while(str[i])
 	{
@@ -30,3 +32,35 @@ int ft_putstr(char *str)
 	}
 	return (i);
 }
+
+int ft_strlen(char *s1)
+{
+	int len;
+
+	len = 0;
+	while (s1[len])
+	{
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	int		size;
+	char	*str;
+	int		index;
+
+	size = ft_strlen((char *)s1) + 1;
+	str = (char *) malloc(size);
+	if (str == NULL)
+		return (NULL);
+	index = 0;
+	while (s1[index])
+	{
+	 str[index] = s1[index];
+	index++;
+	}
+	str[index] = '\0';
+	return (str);
+ }
