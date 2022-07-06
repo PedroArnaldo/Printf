@@ -4,3 +4,4 @@ a.out
 *.a
 .ccls-cache
 printfTester/
+.DS_Store

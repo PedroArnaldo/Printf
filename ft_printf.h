@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:29:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 18:28:52 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:14:17 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 #include <stdarg.h>
 #include <unistd.h>
@@ -24,7 +24,7 @@ int ft_printfdec(int n);
 int ft_printf(const char *str, ...);
 int ft_strlen(char *s1);
 char *ft_strdup(const char *s1);
-int ft_printfunsigned(unsigned int n);
-int ft_printfhex(int n);
+int ft_print_unsigned(unsigned int n);
+int ft_printfhex(unsigned int n);
 
 #endif

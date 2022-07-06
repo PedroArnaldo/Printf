@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/05 18:59:01 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/06 16:12:55 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int ft_printvar(const char c, va_list var)
 	}
 	else if (c == 'u')
 	{
-		return (ft_printfunsigned(va_arg(var, int)));
+		return (ft_print_unsigned(va_arg(var, int)));
 	}
 	else if(c == 'x')
 	{
@@ -73,6 +73,10 @@ int ft_printf(const char *str, ...)
 int main()
 {
 	ft_printf("teste string %c  %% %s %i %u %u %% %% %% %x\n", 's', "string", 2, 6, -35, 43);
-	printf
+	ft_printf("Teste porcentagem %% %% %% %% %%%%\n");
+	ft_printf("Teste char %c %c %c %c\n", 'A', 'B', '!',  '?');
+	ft_printf("%s %s\n", "teste", "string");
+	ft_printf("teste decimal %i %d\n", 10, 40);
+	ft_printf("teste unsigned %u %u\n", 78, -878);
+	ft_printf("teste hex %x", 10 );
 }
-
