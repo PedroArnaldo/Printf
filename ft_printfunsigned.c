@@ -6,13 +6,13 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:28:56 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/06 15:39:22 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/07 02:56:14 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	size_num(int n)
+static int	size_num(unsigned int n)
 {
 	int	size;
 
@@ -25,32 +25,28 @@ static int	size_num(int n)
 	return (size);
 }
 
-char *ft_unsigned_itoa(unsigned int n)
+char	*ft_unsigned_itoa(unsigned int n)
 {
 	int			size;
-	char			*str;
+	char		*str;
 
 	size = size_num(n);
 	str = (char *) malloc(sizeof(char) * (size + 1));
-	if (str == NULL)
-		return (0);
-	str[size] = '\0';
-	while (size)
+	while (size--)
 	{
-		size--;
-		str[size] = (n % 10) + 48;
+		str[size] = (n % 10) + '0';
 		n = n / 10;
 	}
 	return (str);
 }
 
-int ft_print_unsigned(unsigned int n)
+int	ft_print_unsigned(unsigned int n)
 {
-	int printf_len;
-	char *num;
+	int		printf_len;
+	char	*num;
 
 	printf_len = 0;
-	if(n == 0)
+	if (n == 0)
 		printf_len += write(1, "0", 1);
 	else
 	{
