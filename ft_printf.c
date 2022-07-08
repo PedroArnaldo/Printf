@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/07 02:44:30 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:42:43 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static int	ft_printvar(const char c, va_list var)
 		return (ft_putstr("0x")
 			+ ft_printfhex(va_arg(var, unsigned long), "0123456789abcdef"));
 	else if (c == '%')
+		return (ft_putchar(c));
+	else
 		return (ft_putchar(c));
 	return (0);
 }

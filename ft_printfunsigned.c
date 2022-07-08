@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:28:56 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/07 02:56:14 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:12:20 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*ft_unsigned_itoa(unsigned int n)
 
 	size = size_num(n);
 	str = (char *) malloc(sizeof(char) * (size + 1));
+	str[size] = '\0';
 	while (size--)
 	{
 		str[size] = (n % 10) + '0';
