@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:51:11 by parnaldo          #+#    #+#             */
-/*   Updated: 2022/07/07 20:42:43 by parnaldo         ###   ########.fr       */
+/*   Updated: 2022/07/08 22:11:05 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_printvar(const char c, va_list var)
 			+ ft_printfhex(va_arg(var, unsigned long), "0123456789abcdef"));
 	else if (c == '%')
 		return (ft_putchar(c));
-	else
+	else if (c != '\0')
 		return (ft_putchar(c));
 	return (0);
 }
@@ -55,7 +55,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-		print_len += ft_putchar(str[i]);
+			print_len += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
